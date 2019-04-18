@@ -3,6 +3,7 @@
 ## Commit Proposal
 
 Matriculation Number: 17-549-973
+Email               :
 
 Project idea short description: 
 
@@ -23,7 +24,11 @@ Project idea short description:
 
 ## Project confirmation
 
-< to be filled by lecturer>
+I assume that admins must login and regular users must also login to avoid answering multiple times.
+
+With this assumption: confirmed.
+
+D. König
 
 
 ## Project delivery <to be filled by student>
