@@ -3,7 +3,7 @@
 ## Commit Proposal
 
 Matriculation Number: 17-549-973
-Email               :
+Email               : severin.peyer@students.fhnw.ch
 
 Project idea short description: 
 
