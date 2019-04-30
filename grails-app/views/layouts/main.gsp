@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <!--<div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -34,17 +34,21 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>-->
+    <header>
+        Hier ist der Header
+    </header>
 
     <g:layoutBody/>
 
-    <div class="footer" role="contentinfo"></div>
+    <footer>
+        <p>Hier ist der Footer</p>
+    </footer>
 
     <div id="spinner" class="spinner" style="display:none;">
         <g:message code="spinner.alt" default="Loading&hellip;"/>
     </div>
 
     <asset:javascript src="application.js"/>
-
 </body>
 </html>

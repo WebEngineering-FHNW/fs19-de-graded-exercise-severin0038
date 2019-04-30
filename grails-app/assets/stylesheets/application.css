@@ -13,3 +13,8 @@
 *= require mobile
 *= require_self
 */
+
+
+* {
+    color: red;
+}
