@@ -1,16 +1,5 @@
 package webec
 
-class BootStrap {
-
-    def init = { servletContext ->
-    }
-    def destroy = {
-    }
-}
-
-/*
-package webec
-
 import grails.util.Environment
 
 class BootStrap {
@@ -19,7 +8,9 @@ class BootStrap {
 
         if (Environment.current == Environment.PRODUCTION) return; // guard clause
 
-        save(new Question(questionTitle: "WebeC ist mein Lieblingsmodul", questionType: "Ja / Nein").save(flush:true))
+        save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 0, answersPositive: 0))
+        save(new Question(questionTitle: "Kantine der FHNW", questionType: "Mag ich / Mag ich nicht", answersNegative: 3, answersPositive: 5))
+        save(new Question(questionTitle: "Herr König ist der beste Dozent der FHNW", questionType: "Ich stimme zu / Ich lehene ab", answersNegative: 0, answersPositive: 3))
 
     }
 
@@ -31,4 +22,14 @@ class BootStrap {
     }
 }
 
- */
+/*
+package webec
+
+class BootStrap {
+
+    def init = { servletContext ->
+    }
+    def destroy = {
+    }
+}
+*/

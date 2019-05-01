@@ -10,6 +10,7 @@
         <ul>
             <li><a href="/question/index">Liste aller Fragen</a><br></li>
             <li><a href="/question/create">Neue Frage erstellen</a></li>
+            <li><a href="/question/answer">Frage beantworten</a></li>
         </ul>
     </main>
 </body>
