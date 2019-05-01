@@ -6,6 +6,13 @@ class QuestionController {
 
     def userListOfAllQuestions() {
         def userListOfAllQuestions = Question.list()
-        [userListOfAllQuestions:userListOfAllQuestions]
+        [userListOfAllQuestions: userListOfAllQuestions]
+
+        /*def listOfAllYesNoQuestions = Question.findAllByQuestionType("Ja / Nein")
+        [listOfAllYesNoQuestions:listOfAllYesNoQuestions]*/
+    }
+
+    def answerQuestion() {
+        [answerInstance: new Answer(params)]
     }
 }
