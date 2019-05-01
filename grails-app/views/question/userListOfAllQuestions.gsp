@@ -12,8 +12,10 @@
 </head>
 
 <body>
+<table>
     <g:each in="${userListOfAllQuestions}" var="quest">
-        <h3>${quest.questionTitle}</h3>
+        <tr><td>${quest.questionTitle}</td><td>${quest.questionType}</td></tr>
     </g:each>
+</table>
 </body>
 </html>

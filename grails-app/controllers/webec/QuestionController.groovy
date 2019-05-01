@@ -6,6 +6,6 @@ class QuestionController {
 
     def userListOfAllQuestions() {
         def userListOfAllQuestions = Question.list()
-        [list:userListOfAllQuestions]
+        [userListOfAllQuestions:userListOfAllQuestions]
     }
 }
