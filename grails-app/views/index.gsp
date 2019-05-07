@@ -11,6 +11,7 @@
             <li><a href="/question/index">Liste aller Fragen</a><br></li>
             <li><a href="/question/userListOfAllQuestions">Liste aller Fragen ohne bearbeiten</a><br></li>
             <li><a href="/question/create">Neue Frage erstellen</a></li>
+            <li><a href="/answer/index">Liste aller Antworten</a></li>
         </ul>
     </main>
 </body>

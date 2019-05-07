@@ -8,11 +8,11 @@ class QuestionController {
         def userListOfAllQuestions = Question.list()
         [userListOfAllQuestions: userListOfAllQuestions]
 
-        /*def listOfAllYesNoQuestions = Question.findAllByQuestionType("Ja / Nein")
-        [listOfAllYesNoQuestions:listOfAllYesNoQuestions]*/
     }
 
-    def answerQuestion() {
-        [answerInstance: new Answer(params)]
+    def save() {
+        def answer = new Answer(params)
+        answer.save()
+        render "Success!"
     }
 }
