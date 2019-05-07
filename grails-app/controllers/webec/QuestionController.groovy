@@ -4,10 +4,14 @@ class QuestionController {
 
     static scaffold = Question
 
-    def userListOfAllQuestions() {
-        def userListOfAllQuestions = Question.list()
-        [userListOfAllQuestions: userListOfAllQuestions]
+    def openQuestions() {
+        def openQuestions = Question.list()
+        [openQuestions: openQuestions]
+    }
 
+    def answeredQuestions() {
+        def answeredQuestions = Question.list()
+        [answeredQuestions: answeredQuestions]
     }
 
     def save() {

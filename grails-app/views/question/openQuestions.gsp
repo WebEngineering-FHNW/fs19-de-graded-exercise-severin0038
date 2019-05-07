@@ -13,23 +13,25 @@
 
 <body>
 
-<a href="/">Home</a>
+<a href="/">Home</a><br>
+<a href="/question/answeredQuestions">bereits beantwortete Fragen</a>
 
 <h2>alle Fragen</h2>
 <table>
-    <g:each in="${userListOfAllQuestions}" var="quest">
+    <tr>
+        <th>Frage</th>
+        <th>Frage beantworten</th>
+    </tr>
+    <g:each in="${openQuestions}" var="quest">
         <tr>
             <td>${quest.questionTitle}</td>
-            <td>${quest.questionType}</td>
-            <td>${quest.answersPositive}</td>
-            <td>${quest.answersNegative}</td>
             <td>
                 <g:form controller="question" action="save">
                     <g:hiddenField  name="question_id" value="${quest.id}"/><br/>
 
                     <g:hiddenField  name="user_id" value="1"/><br/>
 
-                    <g:radio name="answer" value="true"/>if(${quest.questionType}=="Ja / Nein") { Ja } else { Zustimmung }
+                    <g:radio name="answer" value="true"/>Ja
                     <g:radio name="answer" value="false"/>Nein
 
                     <g:actionSubmit value="Save"/>
