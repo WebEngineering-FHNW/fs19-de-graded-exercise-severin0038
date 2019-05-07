@@ -8,6 +8,11 @@ class BootStrap {
 
         if (Environment.current == Environment.PRODUCTION) return; // guard clause
 
+        SecUser me = SecUser.findOrCreateWhere(username: "me", password: "1234");
+        SecRole admin = SecRole.findOrCreateWhere(authority: SecRole.ROLE_ADMIN);
+        SecUserSecRole.findOrCreateWhere(secUser: me, secRole: admin);
+
+
         save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 0, answersPositive: 0))
         save(new Question(questionTitle: "Hast du heute Pasta gegessen?", questionType: "Ja / Nein", answersNegative: 2, answersPositive: 0))
         save(new Question(questionTitle: "Kantine der FHNW", questionType: "Mag ich / Mag ich nicht", answersNegative: 3, answersPositive: 5))
