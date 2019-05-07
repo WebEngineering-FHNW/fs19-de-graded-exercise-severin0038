@@ -22,14 +22,14 @@ class SecUserSecRole implements Serializable {
 		}
 	}
 
-    @Override
+	@Override
 	int hashCode() {
-	    int hashCode = HashCodeHelper.initHash()
-        if (secUser) {
-            hashCode = HashCodeHelper.updateHash(hashCode, secUser.id)
+		int hashCode = HashCodeHelper.initHash()
+		if (secUser) {
+			hashCode = HashCodeHelper.updateHash(hashCode, secUser.id)
 		}
 		if (secRole) {
-		    hashCode = HashCodeHelper.updateHash(hashCode, secRole.id)
+			hashCode = HashCodeHelper.updateHash(hashCode, secRole.id)
 		}
 		hashCode
 	}
@@ -45,7 +45,7 @@ class SecUserSecRole implements Serializable {
 	private static DetachedCriteria criteriaFor(long secUserId, long secRoleId) {
 		SecUserSecRole.where {
 			secUser == SecUser.load(secUserId) &&
-			secRole == SecRole.load(secRoleId)
+					secRole == SecRole.load(secRoleId)
 		}
 	}
 
@@ -70,11 +70,11 @@ class SecUserSecRole implements Serializable {
 	}
 
 	static constraints = {
-	    secUser nullable: false
+		secUser nullable: false
 		secRole nullable: false, validator: { SecRole r, SecUserSecRole ur ->
 			if (ur.secUser?.id) {
 				if (SecUserSecRole.exists(ur.secUser.id, r.id)) {
-				    return ['userRole.exists']
+					return ['userRole.exists']
 				}
 			}
 		}

@@ -10,8 +10,7 @@ import grails.compiler.GrailsCompileStatic
 class SecRole implements Serializable {
 
 	private static final long serialVersionUID = 1
-
-    public static final String ROLE_ADMIN = "ROLE_ADMIN";
+	public static final String ROLE_ADMIN = "ROLE_ADMIN";
 
 	String authority
 
