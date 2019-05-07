@@ -8,9 +8,9 @@ class BootStrap {
 
         if (Environment.current == Environment.PRODUCTION) return; // guard clause
 
-        SecUser me = SecUser.findOrCreateWhere(username: "me", password: "1234");
-        SecRole admin = SecRole.findOrCreateWhere(authority: SecRole.ROLE_ADMIN);
-        SecUserSecRole.findOrCreateWhere(secUser: me, secRole: admin);
+        SecUser me = new SecUser(username: "me", password: "1234").save(flush:true);
+        SecRole admin = new SecRole(authority: SecRole.ROLE_ADMIN).save(flush:true);
+        new SecUserSecRole(secUser: me, secRole: admin).save(flush:true);
 
 
         save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 0, answersPositive: 0))
