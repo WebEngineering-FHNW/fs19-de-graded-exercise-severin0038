@@ -26,6 +26,24 @@ endpoints:
     jmx:
         enabled: true
 
+# logging
+
+environments:
+    development:
+        grails:
+            logging:
+                jul:
+                    usebridge: true
+            plugin:
+                springsecurity:
+                    debug:
+                        useFilter: true
+    production:
+        grails:
+            logging:
+                jul:
+                    usebridge: true
+
 ---
 grails:
     mime:

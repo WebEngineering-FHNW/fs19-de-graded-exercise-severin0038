@@ -2,7 +2,6 @@ package webec
 
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(SecRole.ROLE_ADMIN)
 class Answer {
 
     int question_id;

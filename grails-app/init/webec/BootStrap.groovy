@@ -1,17 +1,33 @@
 package webec
 
 import grails.util.Environment
+import webec.SecRole
+import webec.SecUser
+import webec.SecUserSecRole
+
+import javax.security.auth.login.FailedLoginException
 
 class BootStrap {
 
     def init = { servletContext ->
 
+        // in production or test, this might already be in the DB
+        SecRole adminRole = save(SecRole.findOrCreateWhere(authority: SecRole.ADMIN))
+        SecRole guestRole = save(SecRole.findOrCreateWhere(authority: SecRole.GUEST))
+
+
+        SecUser guest  = save(new SecUser(username: 'guest', password: 'guest'))
+        SecUserSecRole.create(guest, guestRole, true)
+
         if (Environment.current == Environment.PRODUCTION) return; // guard clause
 
-        SecUser me = new SecUser(username: "me", password: "1234").save(flush:true);
-        SecRole admin = new SecRole(authority: SecRole.ROLE_ADMIN).save(flush:true);
-        new SecUserSecRole(secUser: me, secRole: admin).save(flush:true);
+        SecUser testUser  = save(new SecUser(username: 'me', password: 'toobad'))
+        SecUserSecRole.create(testUser, adminRole, true) //flush
 
+        // plausibility check
+        assert SecRole.count()          == 2
+        assert SecUser.count()          == 2
+        assert SecUserSecRole.count()   == 2
 
         save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 0, answersPositive: 0))
         save(new Question(questionTitle: "Hast du heute Pasta gegessen?", questionType: "Ja / Nein", answersNegative: 2, answersPositive: 0))
