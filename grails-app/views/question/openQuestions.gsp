@@ -22,7 +22,7 @@
         <th>Frage</th>
         <th>Frage beantworten</th>
     </tr>
-    <g:each in="${openQuestions}" var="quest">
+    <g:each in="${openQuest}" var="quest">
         <tr>
             <td>${quest.questionTitle}</td>
             <td>

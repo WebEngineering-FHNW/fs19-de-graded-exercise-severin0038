@@ -22,10 +22,10 @@
         <th>Frage</th>
         <th>Meine Antwort</th>
     </tr>
-    <g:each in="${answeredQuestions}" var="quest">
+    <g:each in="${answeredQuest}" var="quest">
         <tr>
-            <td>${quest.questionTitle}</td>
-            <td>Antwort</td>
+            <td>${quest[0]}</td>
+            <td>${quest[1]}</td>
         </tr>
     </g:each>
 </table>

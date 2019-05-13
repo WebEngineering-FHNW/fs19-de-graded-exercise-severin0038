@@ -36,7 +36,8 @@
         </div>
     </div>-->
     <header>
-        Hier ist der Header
+    <p>Hier ist der Header</p>
+    <a href="/">Home</a>
     </header>
 
     <g:layoutBody/>

@@ -33,17 +33,27 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 // config types are 'Annotation', 'Requestmap', or 'InterceptUrlMap'
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
 grails.plugin.springsecurity.interceptUrlMap = statics + [
-		[pattern: "/static/**",  access: ["permitAll"]],
-		[pattern: "/login/auth", access: ["permitAll"]],
+		[pattern: "/static/**",                     access: ["permitAll"]],
+		[pattern: "/login/auth",                    access: ["permitAll"]],
+        [pattern: "/logout/**",                     access: ["permitAll"]],
+
+		[pattern: "/question/openQuestions",        access: ['ROLE_NORMAL']],
+        [pattern: "/question/answeredQuestions",    access: ['ROLE_NORMAL']],
+		[pattern: "/normaluser/**",				    access: ['ROLE_NORMAL']],
+		[pattern: "/question/**",				    access: ['ROLE_NORMAL']], // muss noch gelöscht werden!!!!!! TODO
+		[pattern: "/answer/**",				    access: ['ROLE_NORMAL']], // muss noch gelöscht werden!!!!!! TODO
+
+        [pattern: "/**",                            access: ['ROLE_ADMIN']], // default: all is secured
+]
+
+
 //		[pattern: "/question/**" , access: ['ROLE_ADMIN']], // cannot use constant here :-(
 //		[pattern: "/answer/**"   , access: ['ROLE_ADMIN']],
-//		[pattern: "/answer/**", access: ['ROLE_ADMIN', 'ROLE_GUEST']], // secured for testing security
+//		[pattern: "/answer/**", access: ['ROLE_ADMIN', 'ROLE_NORMAL']], // secured for testing security
 //		[pattern: "/InPlaceCalculator.html" ,   access: ['permitAll']], // unsecured for ease of testing
 //		[pattern: "/inPlaceCalculator/**" ,     access: ['permitAll']],
 //		[pattern: "/multiplicationCircle.html", access: ['permitAll']],
 //		[pattern: "/multiplicationCircle/**" ,  access: ['permitAll']],
 //		[pattern: "/static/Temperatures.html",  access: ['permitAll']],
-//		[pattern: "/**", access: ['ROLE_ADMIN', 'ROLE_GUEST']], // default: all is secured
-		[pattern: "/question/index"   , access: ['ROLE_ADMIN']],
-		[pattern: "/**", access: ['permitAll']], // default: all is open
-]
+//		[pattern: "/**", access: ['ROLE_ADMIN', 'ROLE_NORMAL']], // default: all is secured
+//      [pattern: "/**", access: ['permitAll']], // default: all is open

@@ -1,11 +1,6 @@
 package webec
 
 import grails.util.Environment
-import webec.SecRole
-import webec.SecUser
-import webec.SecUserSecRole
-
-import javax.security.auth.login.FailedLoginException
 
 class BootStrap {
 
@@ -13,7 +8,7 @@ class BootStrap {
 
         // in production or test, this might already be in the DB
         SecRole adminRole = save(SecRole.findOrCreateWhere(authority: SecRole.ADMIN))
-        SecRole guestRole = save(SecRole.findOrCreateWhere(authority: SecRole.GUEST))
+        SecRole guestRole = save(SecRole.findOrCreateWhere(authority: SecRole.NORMAL))
 
 
         SecUser guest  = save(new SecUser(username: 'guest', password: 'guest'))
@@ -33,6 +28,10 @@ class BootStrap {
         save(new Question(questionTitle: "Hast du heute Pasta gegessen?", questionType: "Ja / Nein", answersNegative: 2, answersPositive: 0))
         save(new Question(questionTitle: "Kantine der FHNW", questionType: "Mag ich / Mag ich nicht", answersNegative: 3, answersPositive: 5))
         save(new Question(questionTitle: "Herr König ist der beste Dozent der FHNW", questionType: "Ich stimme zu / Ich lehene ab", answersNegative: 0, answersPositive: 3))
+        save(new Answer(user_id: 1, question_id: 2, answer: true))
+        save(new Answer(user_id: 1, question_id: 1, answer: false))
+        save(new Answer(user_id: 2, question_id: 3, answer: true))
+        save(new Answer(user_id: 1, question_id: 4, answer: true))
 
     }
 
