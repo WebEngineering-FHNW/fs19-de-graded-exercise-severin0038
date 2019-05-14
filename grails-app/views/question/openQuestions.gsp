@@ -29,16 +29,37 @@
                 <g:form controller="question" action="save">
                     <g:hiddenField  name="question_id" value="${quest.id}"/><br/>
 
-                    <g:hiddenField  name="user_id" value="1"/><br/>
+                    <g:hiddenField  name="user_id" value="${userId}"/><br/>
 
-                    <g:radio name="answer" value="true"/>Ja
-                    <g:radio name="answer" value="false"/>Nein
+                    <g:radio name="answer" value="true"/>
+                        <%
+                            if ( quest.questionType == "Ja / Nein" ) {
+                                out << "Ja"
+                            } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
+                                out << "Mag ich"
+                            } else {
+                                out << "Ich stimme zu"
+                            }
+                        %>
+
+                    <g:radio name="answer" value="false"/>
+                        <%
+                            if ( quest.questionType == "Ja / Nein" ) {
+                                out << "Nein"
+                            } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
+                                out << "Mag ich nicht"
+                            } else {
+                                out << "Ich lehne ab"
+                            }
+                        %>
 
                     <g:actionSubmit value="Save"/>
                 </g:form>
             </td>
         </tr>
     </g:each>
+
+
 </table>
 </body>
 </html>

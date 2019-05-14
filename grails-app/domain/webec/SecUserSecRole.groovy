@@ -84,4 +84,9 @@ class SecUserSecRole implements Serializable {
 		id composite: ['secUser', 'secRole']
 		version false
 	}
+
+//	public int getUserRole(SecUser u) {
+//		def allRoles = findAll(u as Closure);
+//		System.out.println(allRoles);
+//	} TODO
 }

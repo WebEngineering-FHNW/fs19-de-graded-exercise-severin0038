@@ -28,7 +28,7 @@ class QuestionController {
             }
         }
 
-        [openQuest: openQuest]
+        [openQuest: openQuest, userId: userId]
     }
 
 
@@ -51,15 +51,12 @@ class QuestionController {
             System.out.println(questionType)
 
             if(questionType == "Mag ich / Mag ich nicht") {
-
                 if(answerOfThisQuestion) {
                     answerQuestion = "Mag ich";
                 } else {
                     answerQuestion = "Mag ich nicht"
                 }
             } else if(questionType == "Ja / Nein") {
-                System.out.println("tut")
-                System.out.println(answerOfThisQuestion)
                 if(answerOfThisQuestion) {
                     answerQuestion = "Ja";
                 } else {
@@ -73,19 +70,17 @@ class QuestionController {
                 }
             }
 
-            /*answerOfThisQuestion = Boolean.toString(answer.answer);
-            answer.
-            answeredQuest.add(arr);*/
-
-
             arr[0] = question.getQuestionTitle();
             arr[1] = answerQuestion;
 
             answeredQuest.add(arr);
         }
 
+
+
         [answeredQuest: answeredQuest]
     }
+    
 
     def save() {
         def answer = new Answer(params)
