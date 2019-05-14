@@ -14,11 +14,11 @@ class TestklasseServiceSpec extends Specification {
 
     private Long setupData() {
         // TODO: Populate valid domain instances and return a valid ID
-        //new Testklasse(...).save(flush: true, failOnError: true)
-        //new Testklasse(...).save(flush: true, failOnError: true)
-        //Testklasse testklasse = new Testklasse(...).save(flush: true, failOnError: true)
-        //new Testklasse(...).save(flush: true, failOnError: true)
-        //new Testklasse(...).save(flush: true, failOnError: true)
+        //new Testklasse(...).saveAnswerForUser(flush: true, failOnError: true)
+        //new Testklasse(...).saveAnswerForUser(flush: true, failOnError: true)
+        //Testklasse testklasse = new Testklasse(...).saveAnswerForUser(flush: true, failOnError: true)
+        //new Testklasse(...).saveAnswerForUser(flush: true, failOnError: true)
+        //new Testklasse(...).saveAnswerForUser(flush: true, failOnError: true)
         assert false, "TODO: Provide a setupData() implementation for this generated test suite"
         //testklasse.id
     }
@@ -64,7 +64,7 @@ class TestklasseServiceSpec extends Specification {
 
     void "test save"() {
         when:
-        assert false, "TODO: Provide a valid instance to save"
+        assert false, "TODO: Provide a valid instance to saveAnswerForUser"
         Testklasse testklasse = new Testklasse()
         testklasseService.save(testklasse)
 

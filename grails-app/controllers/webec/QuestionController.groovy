@@ -1,5 +1,9 @@
 package webec
 
+import org.springframework.web.bind.annotation.PostMapping
+
+import javax.persistence.PostLoad
+
 class QuestionController {
 
     static scaffold = Question
@@ -80,11 +84,42 @@ class QuestionController {
 
         [answeredQuest: answeredQuest]
     }
-    
 
-    def save() {
-        def answer = new Answer(params)
-        answer.save()
-        render "Success!"
+    def evaluation() {
+        List<Question> allQuest = Question.list();
+        [allQuest: allQuest]
     }
+
+    //@PostMapping("/saveAnswersOfUser")
+    def saveAnswersOfUser() {
+        def answer = new Answer(params)
+        answer.save(flush:true)
+
+        System.out.println("hallo");
+
+        def question_id = params.question_id;
+        def givenAnswer = params.answer;
+
+        Question question = Question.findById(question_id);
+        System.out.println(question)
+
+        if(givenAnswer) {
+            def answersPositive = Question.findById(question_id).getAnswersPositive();
+            question.setAnswersPositive(answersPositive+1);
+
+        } else {
+            def answersNegative = Question.findById(question_id).getAnswersNegative();
+            question.setAnswersNegative(answersNegative+1);
+        }
+
+//        def type = question.getQuestionType();
+//        question.setQuestionType(type);
+//        def title = question.getQuestionTitle();
+//        question.setQuestionTitle(title);
+
+        question.save(flush: true);
+
+        render text: "success!";
+    }
+
 }

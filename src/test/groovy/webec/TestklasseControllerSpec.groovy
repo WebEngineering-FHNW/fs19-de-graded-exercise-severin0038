@@ -55,7 +55,7 @@ class TestklasseControllerSpec extends Specification implements ControllerUnitTe
             1 * save(_ as Testklasse)
         }
 
-        when:"The save action is executed with a valid instance"
+        when:"The saveAnswerForUser action is executed with a valid instance"
         response.reset()
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
@@ -78,7 +78,7 @@ class TestklasseControllerSpec extends Specification implements ControllerUnitTe
             }
         }
 
-        when:"The save action is executed with an invalid instance"
+        when:"The saveAnswerForUser action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
         def testklasse = new Testklasse()
@@ -159,7 +159,7 @@ class TestklasseControllerSpec extends Specification implements ControllerUnitTe
             1 * save(_ as Testklasse)
         }
 
-        when:"The save action is executed with a valid instance"
+        when:"The saveAnswerForUser action is executed with a valid instance"
         response.reset()
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
@@ -182,7 +182,7 @@ class TestklasseControllerSpec extends Specification implements ControllerUnitTe
             }
         }
 
-        when:"The save action is executed with an invalid instance"
+        when:"The saveAnswerForUser action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
         controller.update(new Testklasse())

@@ -26,32 +26,32 @@
         <tr>
             <td>${quest.questionTitle}</td>
             <td>
-                <g:form controller="question" action="save">
+                <g:form controller="question" action="saveAnswersOfUser">
                     <g:hiddenField  name="question_id" value="${quest.id}"/><br/>
 
                     <g:hiddenField  name="user_id" value="${userId}"/><br/>
 
-                    <g:radio name="answer" value="true"/>
-                        <%
-                            if ( quest.questionType == "Ja / Nein" ) {
-                                out << "Ja"
-                            } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
-                                out << "Mag ich"
-                            } else {
-                                out << "Ich stimme zu"
-                            }
-                        %>
+                    <g:radio name="answer" value="true"/>ja
+%{--                        <%--}%
+%{--                            if ( quest.questionType == "Ja / Nein" ) {--}%
+%{--                                out << "Ja"--}%
+%{--                            } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {--}%
+%{--                                out << "Mag ich"--}%
+%{--                            } else {--}%
+%{--                                out << "Ich stimme zu"--}%
+%{--                            }--}%
+%{--                        %>--}%
 
-                    <g:radio name="answer" value="false"/>
-                        <%
-                            if ( quest.questionType == "Ja / Nein" ) {
-                                out << "Nein"
-                            } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
-                                out << "Mag ich nicht"
-                            } else {
-                                out << "Ich lehne ab"
-                            }
-                        %>
+                    <g:radio name="answer" value="false"/>nein
+%{--                        <%--}%
+%{--                            if ( quest.questionType == "Ja / Nein" ) {--}%
+%{--                                out << "Nein"--}%
+%{--                            } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {--}%
+%{--                                out << "Mag ich nicht"--}%
+%{--                            } else {--}%
+%{--                                out << "Ich lehne ab"--}%
+%{--                            }--}%
+%{--                        %>--}%
 
                     <g:actionSubmit value="Save"/>
                 </g:form>

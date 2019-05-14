@@ -40,7 +40,7 @@ grails.plugin.springsecurity.interceptUrlMap = statics + [
 		[pattern: "/question/openQuestions",        access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
         [pattern: "/question/answeredQuestions",    access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
 		[pattern: "/normaluser/**",				    access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
-		[pattern: "/",						    access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
+		[pattern: "/",						        access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
 		[pattern: "/question/**",				    access: ['ROLE_ADMIN', 'ROLE_NORMAL']], // muss noch gelöscht werden!!!!!! TODO
 		[pattern: "/answer/**",				    	access: ['ROLE_ADMIN', 'ROLE_NORMAL']], // muss noch gelöscht werden!!!!!! TODO
 
