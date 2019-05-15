@@ -7,7 +7,13 @@ import javax.persistence.PostLoad
 class QuestionController {
 
     static scaffold = Question
+
     def springSecurityService
+
+    def listOfQuestions() {
+        List<Question> allQuest = Question.list();
+        [allQuest: allQuest]
+    }
 
     def openQuestions() {
 
@@ -80,9 +86,8 @@ class QuestionController {
             answeredQuest.add(arr);
         }
 
-
-
         [answeredQuest: answeredQuest]
+
     }
 
     def evaluation() {
@@ -92,10 +97,11 @@ class QuestionController {
 
     //@PostMapping("/saveAnswersOfUser")
     def saveAnswersOfUser() {
-        def answer = new Answer(params)
-        answer.save(flush:true)
 
         System.out.println("hallo");
+
+        def answer = new Answer(params)
+        answer.save(flush:true)
 
         def question_id = params.question_id;
         def givenAnswer = params.answer;
@@ -111,11 +117,6 @@ class QuestionController {
             def answersNegative = Question.findById(question_id).getAnswersNegative();
             question.setAnswersNegative(answersNegative+1);
         }
-
-//        def type = question.getQuestionType();
-//        question.setQuestionType(type);
-//        def title = question.getQuestionTitle();
-//        question.setQuestionTitle(title);
 
         question.save(flush: true);
 
