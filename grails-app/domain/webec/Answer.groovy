@@ -4,8 +4,8 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class Answer {
 
-    int question_id;
-    int user_id;
+    Question question;
+    SecUser user;
     boolean answer;
 
     static constraints = {

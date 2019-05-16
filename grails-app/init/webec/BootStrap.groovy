@@ -27,14 +27,15 @@ class BootStrap {
 //        assert SecUser.count()          == 2
 //        assert SecUserSecRole.count()   == 2
 
-        save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 0, answersPositive: 0))
-        save(new Question(questionTitle: "Hast du heute Pasta gegessen?", questionType: "Ja / Nein", answersNegative: 2, answersPositive: 0))
-        save(new Question(questionTitle: "Kantine der FHNW", questionType: "Mag ich / Mag ich nicht", answersNegative: 3, answersPositive: 5))
+        Question question1 = save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 0, answersPositive: 0))
+        Question question2 = save(new Question(questionTitle: "Hast du heute Pasta gegessen?", questionType: "Ja / Nein", answersNegative: 2, answersPositive: 0))
+        Question question3 = save(new Question(questionTitle: "Kantine der FHNW", questionType: "Mag ich / Mag ich nicht", answersNegative: 3, answersPositive: 5))
         save(new Question(questionTitle: "Herr König ist der beste Dozent der FHNW", questionType: "Ich stimme zu / Ich lehene ab", answersNegative: 0, answersPositive: 3))
-        save(new Answer(user_id: 1, question_id: 2, answer: true))
-        save(new Answer(user_id: 1, question_id: 1, answer: false))
-        save(new Answer(user_id: 2, question_id: 3, answer: true))
-        save(new Answer(user_id: 1, question_id: 4, answer: true))
+
+        save(new Answer(user: guest, question: question1, answer: true))
+        save(new Answer(user: guest, question: question2, answer: false))
+        save(new Answer(user: testUser, question: question1, answer: true))
+        save(new Answer(user: guest, question: question3, answer: true))
 
     }
 

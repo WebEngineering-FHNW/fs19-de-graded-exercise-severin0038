@@ -11,7 +11,7 @@
         <sec:ifLoggedIn>
             <sec:ifAllGranted roles="ROLE_ADMIN">
                 <ul>
-                    <li><a href="/question/listOfQuestions">Liste aller Fragen</a></li>
+                    <li><a href="/question">Liste aller Fragen</a></li>
                     <li><a href="/question/openQuestions">offene Fragen</a></li>
                     <li><a href="/question/answeredQuestions">beantwortete Fragen</a></li>
                     <li><a href="/question/create">Neue Frage erstellen</a></li>

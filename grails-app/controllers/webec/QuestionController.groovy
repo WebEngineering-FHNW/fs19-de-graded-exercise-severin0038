@@ -10,18 +10,14 @@ class QuestionController {
 
     def springSecurityService
 
-    def listOfQuestions() {
-        List<Question> allQuest = Question.list();
-        [allQuest: allQuest]
-    }
 
     def openQuestions() {
 
         def user = springSecurityService.currentUser;
-        def userId = user.id;
+        //def userId = user.id;
 
         List<Question> allQuestions = Question.list();
-        List<Answer> allAnswersByUser = Answer.findAllByUser_id(userId);
+        List<Answer> allAnswersByUser = Answer.findAllByUser(user);
         List openQuest = new ArrayList();
 
         boolean found;
@@ -29,7 +25,7 @@ class QuestionController {
         for(Question question : allQuestions) {
             found = false;
             for(Answer answer : allAnswersByUser) {
-                if(answer.question_id == question.id) {
+                if(answer.question == question) {
                     found = true;
                 }
             }
@@ -38,7 +34,7 @@ class QuestionController {
             }
         }
 
-        [openQuest: openQuest, userId: userId]
+        [openQuest: openQuest, user: user]
     }
 
 
@@ -46,14 +42,14 @@ class QuestionController {
     def answeredQuestions() {
 
         def user = springSecurityService.currentUser;
-        def userId = user.id;
+        //def userId = user.id;
 
-        List<Answer> answers = Answer.findAllByUser_id(userId);
+        List<Answer> answers = Answer.findAllByUser(user);
         List answeredQuest = new ArrayList();
 
         for(Answer answer : answers) {
             String[] arr = new String[2];
-            Question question = Question.findById(answer.question_id);
+            Question question = Question.find(answer.question);
             boolean answerOfThisQuestion = answer.answer;
             String questionType = question.questionType;
             String answerQuestion;
@@ -98,23 +94,20 @@ class QuestionController {
     //@PostMapping("/saveAnswersOfUser")
     def saveAnswersOfUser() {
 
-        System.out.println("hallo");
-
         def answer = new Answer(params)
         answer.save(flush:true)
 
-        def question_id = params.question_id;
+        def quest = params.question;
         def givenAnswer = params.answer;
 
-        Question question = Question.findById(question_id);
-        System.out.println(question)
+        Question question = Question.find(quest);
 
         if(givenAnswer) {
-            def answersPositive = Question.findById(question_id).getAnswersPositive();
+            def answersPositive = question.getAnswersPositive();
             question.setAnswersPositive(answersPositive+1);
 
         } else {
-            def answersNegative = Question.findById(question_id).getAnswersNegative();
+            def answersNegative = question.getAnswersNegative();
             question.setAnswersNegative(answersNegative+1);
         }
 

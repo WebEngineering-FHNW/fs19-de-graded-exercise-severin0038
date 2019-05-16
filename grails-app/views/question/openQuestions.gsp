@@ -27,9 +27,9 @@
             <td>${quest.questionTitle}</td>
             <td>
                 <g:form controller="question" action="saveAnswersOfUser">
-                    <g:hiddenField  name="question_id" value="${quest.id}"/><br/> %{-- method="POST" --}%
+                    <g:hiddenField  name="question" value="${quest}"/><br/> %{-- method="POST" --}%
 
-                    <g:hiddenField  name="user_id" value="${userId}"/><br/>
+                    <g:hiddenField  name="user" value="${user}"/><br/>
 
                     <g:radio name="answer" value="true"/>ja
                         <%
