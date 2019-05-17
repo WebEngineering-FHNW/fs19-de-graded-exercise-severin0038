@@ -31,7 +31,7 @@
 
                     <g:hiddenField  name="user" value="${user}"/><br/>
 
-                    <g:radio name="answer" value="true"/>ja
+                    <g:radio name="answer" value="true"/>
                         <%
                             if ( quest.questionType == "Ja / Nein" ) {
                                 out << "Ja"
@@ -42,7 +42,7 @@
                             }
                         %>
 
-                    <g:radio name="answer" value="false"/>nein
+                    <g:radio name="answer" value="false"/>
                         <%
                             if ( quest.questionType == "Ja / Nein" ) {
                                 out << "Nein"

@@ -94,7 +94,11 @@ class QuestionController {
     //@PostMapping("/saveAnswersOfUser")
     def saveAnswersOfUser() {
 
-        def answer = new Answer(params)
+        render text: "success!";
+
+        //auskommentiert, um zu testen, was passiert, wenn saveAnswersOfUser aufgerufen wird
+
+        /*def answer = new Answer(params)
         answer.save(flush:true)
 
         def quest = params.question;
@@ -111,9 +115,8 @@ class QuestionController {
             question.setAnswersNegative(answersNegative+1);
         }
 
-        question.save(flush: true);
+        question.save(flush: true);*/
 
-        render text: "success!";
     }
 
 }
