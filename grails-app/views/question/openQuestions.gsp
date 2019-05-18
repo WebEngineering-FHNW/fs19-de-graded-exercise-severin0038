@@ -26,7 +26,7 @@
         <tr>
             <td>${quest.questionTitle}</td>
             <td>
-                <g:form controller="question" action="saveAnswersOfUser">
+                <g:form controller="question" action="nonFunctionalMethod">
                     <g:hiddenField  name="question" value="${quest}"/><br/> %{-- method="POST" --}%
 
                     <g:hiddenField  name="user" value="${user}"/><br/>

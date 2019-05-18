@@ -92,7 +92,7 @@ class QuestionController {
     }
 
     //@PostMapping("/saveAnswersOfUser")
-    def saveAnswersOfUser() {
+    def nonFunctionalMethod() {
 
         render text: "success!";
 
