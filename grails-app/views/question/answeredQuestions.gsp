@@ -9,26 +9,24 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Swipinion - offene Fragen</title>
+    <title>Swipinion - beantwortete Frage</title>
 </head>
 
 <body>
-
-<a href="/">Home</a><br>
-<a href="/question/openQuestions">offene Fragen</a>
-
-<h2>alle Fragen</h2>
-<table>
-    <tr>
-        <th>Frage</th>
-        <th>Meine Antwort</th>
-    </tr>
-    <g:each in="${answeredQuest}" var="quest">
-        <tr>
-            <td>${quest[0]}</td>
-            <td>${quest[1]}</td>
-        </tr>
-    </g:each>
-</table>
+    <main>
+        <h1>Liste aller beantworteten Fragen</h1>
+        <table>
+            <tr>
+                <th>Frage</th>
+                <th>Meine Antwort</th>
+            </tr>
+            <g:each in="${answeredQuest}" var="quest">
+                <tr>
+                    <td>${quest[0]}</td>
+                    <td>${quest[1]}</td>
+                </tr>
+            </g:each>
+        </table>
+    </main>
 </body>
 </html>

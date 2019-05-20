@@ -91,10 +91,10 @@
 
                     <sec:ifAllGranted roles="ROLE_ADMIN">
                         <li><a href="/question">Liste aller Fragen</a></li>
-                        <li><a href="/question/openQuestions">offene Fragen</a></li>
-                        <li><a href="/question/answeredQuestions">beantwortete Fragen</a></li>
                         <li><a href="/question/create">Neue Frage erstellen</a></li>
                         <li><a href="/question/evaluation">Auswertung</a></li>
+                        <li><a href="/question/openQuestions">meine offene Fragen</a></li>
+                        <li><a href="/question/answeredQuestions">meine beantwortete Fragen</a></li>
                     </sec:ifAllGranted>
 
                     <sec:ifAllGranted roles="ROLE_NORMAL">

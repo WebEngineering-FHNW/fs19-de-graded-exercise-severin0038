@@ -14,7 +14,7 @@ class QuestionController {
     def openQuestions() {
 
         def user = springSecurityService.currentUser;
-        //def userId = user.id;
+        def user_id = user.id;
 
         List<Question> allQuestions = Question.list();
         List<Answer> allAnswersByUser = Answer.findAllByUser(user);
@@ -34,7 +34,7 @@ class QuestionController {
             }
         }
 
-        [openQuest: openQuest, user: user]
+        [openQuest: openQuest, user_id: user_id]
     }
 
 
@@ -91,30 +91,41 @@ class QuestionController {
     }
 
     //@PostMapping("/saveAnswersOfUser")
-    def nonFunctionalMethod() {
+    def saveAnswerOfUser() {
 
         render text: "success!";
 
-        //auskommentiert, um zu testen, was passiert, wenn saveAnswersOfUser aufgerufen wird
 
-        /*def answer = new Answer(params)
-        answer.save(flush:true)
+        // auskommentiert, um zu testen, was passiert, wenn saveAnswersOfUser aufgerufen wird
 
-        def quest = params.question;
-        def givenAnswer = params.answer;
+//        //Antworten auslesen und ids auf Objekete matchen
+//        def question_id = params.question;
+//        def givenAnswer = params.answer;
+//        def user_id = params.user_id;
+//        Question question = Question.findById(question_id);
+//        SecUser user = SecUser.findById(user_id);
+//
+//        //Antwort abspeichern
+//        Answer answer = new Answer();
+//        answer.question = question;
+//        answer.user = user;
+//        answer.answer = Boolean.parseBoolean(givenAnswer)
+//        answer.save(flush:true)
+//
+//        //je nachdem, ob positiv oder negativ geantwortet wurde, das entsprechende Feld der Frage um 1 inkrementieren
+//        if(givenAnswer) {
+//            def answersPositive = question.getAnswersPositive();
+//            question.setAnswersPositive(answersPositive+1);
+//
+//        } else {
+//            def answersNegative = question.getAnswersNegative();
+//            question.setAnswersNegative(answersNegative+1);
+//        }
+//        question.save(flush: true);
+//
+//        //Erfolgsmeldung ausgeben
+//        render text: "success!";
 
-        Question question = Question.find(quest);
-
-        if(givenAnswer) {
-            def answersPositive = question.getAnswersPositive();
-            question.setAnswersPositive(answersPositive+1);
-
-        } else {
-            def answersNegative = question.getAnswersNegative();
-            question.setAnswersNegative(answersNegative+1);
-        }
-
-        question.save(flush: true);*/
 
     }
 

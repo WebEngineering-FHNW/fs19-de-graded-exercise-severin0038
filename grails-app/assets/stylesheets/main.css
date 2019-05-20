@@ -36,7 +36,7 @@ body {
     font-size: 18px;
 }
 
-main {
+main, .content {
     min-height: 70vh;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -44,7 +44,7 @@ main {
     background: rgba(255,255,255,.7);
 }
 
-main, footer {
+main, footer, .content {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -64,6 +64,7 @@ main h1 {
 main .text_element p {
     font-size: 18px;
     max-width: 30em;
+    margin-bottom: 1.2em;
 }
 
 @-webkit-keyframes Gradient {
@@ -103,10 +104,6 @@ h1, h2, h3 {
 
 ul {
     padding: 0;
-}
-
-ul, p {
-    margin-bottom: 1.5em;
 }
 
 img {
@@ -630,3 +627,25 @@ body #login #submit:hover {
     background: transparent;
     color: white;
 }
+
+.skip, .nav {
+    display: none;
+}
+
+.answer_container + .answer_container {
+    margin-top: 2.5em;
+}
+
+.answer__label {
+    width: 8em;
+    display: inline-block;
+}
+
+.answer--positive {
+    margin-bottom: .3em;
+}
+
+.answer_container h2 {
+    margin-bottom: .4em;
+}
+
