@@ -96,4 +96,24 @@ class TestklasseController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+
+    def testTest() {
+        Question question = Question.findById(2);
+        SecUser user = SecUser.findByUsername("guest");
+        boolean answer = true;
+
+        def testklasse = new Testklasse();
+        testklasse.question = question;
+        testklasse.user = user;
+        testklasse.answer = answer;
+
+        testklasse.save(flush: true)
+    }
+
+//    Testklasse(Question question, SecUser user, boolean answer) {
+//        this.question = question;
+//        this.user = user;
+//        this.answer = answer;
+//    }
 }

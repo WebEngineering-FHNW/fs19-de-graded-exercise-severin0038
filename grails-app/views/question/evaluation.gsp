@@ -5,7 +5,10 @@
   Time: 13:56
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" import="webec.QuestionService" %>
+<%
+    def QuestionService = grailsApplication.classLoader.loadClass('webec.QuestionService').newInstance()
+%>
 <html>
 <head>
     <meta name="layout" content="main"/>
@@ -24,15 +27,7 @@
                 <h2>${quest.questionTitle}</h2>
                 <p class="answer--positive">
                     <span class="answer__label">
-                        <%
-                            if ( quest.questionType == "Ja / Nein" ) {
-                                out << "Ja"
-                            } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
-                                out << "Mag ich"
-                            } else {
-                                out << "Ich stimme zu"
-                            }
-                        %>:
+                        ${QuestionService.answerBooleanToString(true, quest.questionType)}:
                     </span>
                     <span class="answer__count">
                         ${quest.answersPositive}
@@ -40,15 +35,7 @@
                 </p>
                 <p class="answer answer--negative">
                     <span class="answer__label">
-                    <%
-                        if ( quest.questionType == "Ja / Nein" ) {
-                            out << "Nein"
-                        } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
-                            out << "Mag ich nicht"
-                        } else {
-                            out << "Ich lehne ab"
-                        }
-                    %>:
+                        ${QuestionService.answerBooleanToString(false, quest.questionType)}:
                 </span>
                     <span class="answer__count">
                         ${quest.answersNegative}

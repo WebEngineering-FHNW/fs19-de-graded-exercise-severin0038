@@ -9,6 +9,7 @@ class QuestionController {
     static scaffold = Question
 
     def springSecurityService
+    def QuestionService
 
 
     def openQuestions() {
@@ -52,28 +53,8 @@ class QuestionController {
             Question question = Question.find(answer.question);
             boolean answerOfThisQuestion = answer.answer;
             String questionType = question.questionType;
-            String answerQuestion;
 
-
-            if(questionType == "Mag ich / Mag ich nicht") {
-                if(answerOfThisQuestion) {
-                    answerQuestion = "Mag ich";
-                } else {
-                    answerQuestion = "Mag ich nicht"
-                }
-            } else if(questionType == "Ja / Nein") {
-                if(answerOfThisQuestion) {
-                    answerQuestion = "Ja";
-                } else {
-                    answerQuestion = "Nein"
-                }
-            } else {
-                if(answerOfThisQuestion) {
-                    answerQuestion = "Ich stimme zu";
-                } else {
-                    answerQuestion = "Ich lehene ab"
-                }
-            }
+            String answerQuestion = QuestionService.answerBooleanToString(answerOfThisQuestion, questionType)
 
             arr[0] = question.getQuestionTitle();
             arr[1] = answerQuestion;
@@ -93,38 +74,33 @@ class QuestionController {
     //@PostMapping("/saveAnswersOfUser")
     def saveAnswerOfUser() {
 
+        //Antworten auslesen und ids auf Objekete matchen
+        def question_id = params.question;
+        def givenAnswer = params.answer;
+        def user_id = params.user_id;
+        Question question = Question.findById(question_id);
+        SecUser user = SecUser.findById(user_id);
+
+        //Antwort abspeichern
+        Answer answer = new Answer();
+        answer.question = question;
+        answer.user = user;
+        answer.answer = Boolean.parseBoolean(givenAnswer)
+        answer.save(flush:true)
+
+        //je nachdem, ob positiv oder negativ geantwortet wurde, das entsprechende Feld der Frage um 1 inkrementieren
+        if(givenAnswer) {
+            def answersPositive = question.getAnswersPositive();
+            question.setAnswersPositive(answersPositive+1);
+
+        } else {
+            def answersNegative = question.getAnswersNegative();
+            question.setAnswersNegative(answersNegative+1);
+        }
+        question.save(flush: true);
+
+        //Erfolgsmeldung ausgeben
         render text: "success!";
-
-
-        // auskommentiert, um zu testen, was passiert, wenn saveAnswersOfUser aufgerufen wird
-
-//        //Antworten auslesen und ids auf Objekete matchen
-//        def question_id = params.question;
-//        def givenAnswer = params.answer;
-//        def user_id = params.user_id;
-//        Question question = Question.findById(question_id);
-//        SecUser user = SecUser.findById(user_id);
-//
-//        //Antwort abspeichern
-//        Answer answer = new Answer();
-//        answer.question = question;
-//        answer.user = user;
-//        answer.answer = Boolean.parseBoolean(givenAnswer)
-//        answer.save(flush:true)
-//
-//        //je nachdem, ob positiv oder negativ geantwortet wurde, das entsprechende Feld der Frage um 1 inkrementieren
-//        if(givenAnswer) {
-//            def answersPositive = question.getAnswersPositive();
-//            question.setAnswersPositive(answersPositive+1);
-//
-//        } else {
-//            def answersNegative = question.getAnswersNegative();
-//            question.setAnswersNegative(answersNegative+1);
-//        }
-//        question.save(flush: true);
-//
-//        //Erfolgsmeldung ausgeben
-//        render text: "success!";
 
 
     }

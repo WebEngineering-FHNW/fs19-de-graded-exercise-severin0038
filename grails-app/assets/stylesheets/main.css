@@ -37,10 +37,10 @@ body {
 }
 
 main, .content {
-    min-height: 70vh;
+    min-height: 60vh;
     margin-top: 1em;
     margin-bottom: 1em;
-    padding: 1.5em 2em;
+    padding: 1.5em 2.5em 2.1em;
     background: rgba(255,255,255,.7);
 }
 
@@ -56,7 +56,7 @@ a {
     font-size: 18px;
 }
 
-main h1 {
+main h1, .content h1 {
     font-size: 55px;
     margin-bottom: .8em;
 }

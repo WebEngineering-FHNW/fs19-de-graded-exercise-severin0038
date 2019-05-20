@@ -5,7 +5,10 @@
   Time: 17:55
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" import="webec.QuestionService" %>
+<%
+    def QuestionService = grailsApplication.classLoader.loadClass('webec.QuestionService').newInstance()
+%>
 <html>
 <head>
     <meta name="layout" content="main"/>
@@ -25,34 +28,18 @@
                 <tr>
                     <td>${quest.questionTitle}</td>
                     <td>
-                        <g:form controller="question" action="saveAnswerOfUser">
+                        <g:form controller="question" >
                             <g:hiddenField  name="question" value="${quest.id}"/><br/>
 
                             <g:hiddenField  name="user_id" value="${user_id}"/><br/>
 
                             <g:radio name="answer" value="true"/>
-                                <%
-                                    if ( quest.questionType == "Ja / Nein" ) {
-                                        out << "Ja"
-                                    } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
-                                        out << "Mag ich"
-                                    } else {
-                                        out << "Ich stimme zu"
-                                    }
-                                %>
+                            ${QuestionService.answerBooleanToString(true, quest.questionType)}
 
                             <g:radio name="answer" value="false"/>
-                                <%
-                                    if ( quest.questionType == "Ja / Nein" ) {
-                                        out << "Nein"
-                                    } else if ( quest.questionType == "Mag ich / Mag ich nicht" ) {
-                                        out << "Mag ich nicht"
-                                    } else {
-                                        out << "Ich lehne ab"
-                                    }
-                                %>
+                            ${QuestionService.answerBooleanToString(false, quest.questionType)}
 
-                            <g:actionSubmit value="Save"/>
+                            <g:actionSubmit value="Speichern" action="saveAnswerOfUser" />
                         </g:form>
                     </td>
                 </tr>
