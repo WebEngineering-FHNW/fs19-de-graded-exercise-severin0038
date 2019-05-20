@@ -29,9 +29,8 @@
                     <td>${quest.questionTitle}</td>
                     <td>
                         <g:form controller="question" >
-                            <g:hiddenField  name="question" value="${quest.id}"/><br/>
-
-                            <g:hiddenField  name="user_id" value="${user_id}"/><br/>
+                            <g:hiddenField  name="question" value="${quest.id}"/>
+                            <g:hiddenField  name="user_id" value="${user_id}"/>
 
                             <g:radio name="answer" value="true"/>
                             ${QuestionService.answerBooleanToString(true, quest.questionType)}

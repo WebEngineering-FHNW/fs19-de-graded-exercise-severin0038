@@ -5,10 +5,6 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class QuestionService {
 
-    def serviceMethod() {
-
-    }
-
     def answerBooleanToString(boolean answer, String questionType) {
 
         if (questionType == "Mag ich / Mag ich nicht") {
@@ -31,4 +27,10 @@ class QuestionService {
             }
         }
     }
+
+    def deleteQuestionDependencies(Question question) {
+        def answerList = Answer.findAllByQuestion(question)
+        answerList.each { answer -> answer.delete(flush: true)}
+    }
+
 }

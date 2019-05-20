@@ -100,9 +100,20 @@ class QuestionController {
         question.save(flush: true);
 
         //Erfolgsmeldung ausgeben
-        render text: "success!";
+        redirect(uri: "/question/openQuestions")
+    }
+
+    def delete(Long id) {
+        def questionToDelete = Question.findById(id)
+        try{
+            questionService.deleteQuestionDependencies(questionToDelete)
+            questionToDelete.delete(flush: true)
+            flash.message= "Die Frage «${questionToDelete.questionTitle}» wurde erfolgreich gelöscht."
+        } catch (RuntimeException re) {
+            flash.error = re.message
+        }
+        redirect(controller:"question")
+    }
 
 
     }
-
-}

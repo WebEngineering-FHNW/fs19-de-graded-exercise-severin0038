@@ -114,9 +114,22 @@
         </footer>
     </sec:ifLoggedIn>
 
-    <div id="spinner" class="spinner" style="display:none;">
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
-    </div>
+
+    <g:if test="${flash.message}">
+        <div class="infobox infobox--message">
+            <p>
+                ${flash.message}
+            </p>
+        </div>
+    </g:if>
+    <g:if test="${flash.error}">
+        <div class="infobox infobox--error">
+            <p>
+                ${flash.error}
+            </p>
+        </div>
+    </g:if>
+
 
     <asset:javascript src="application.js"/>
 </body>

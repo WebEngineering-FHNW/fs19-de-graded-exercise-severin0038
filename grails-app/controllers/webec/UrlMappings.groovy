@@ -9,7 +9,8 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        //"/"(view:"/index")
+        "/"(uri:"/question/openQuestions")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
