@@ -56,13 +56,13 @@
                     </div>
 
                     <div class="chartgraphic">
-                        <div class="percentage-bar percentage-bar-${QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, true)}">
+                        <div class="percentage-bar percentage-bar-${QuestionService.calculatePercentagesForEvaluationChart(quest.answersPositive, quest.answersNegative, true)}">
                             <span>
                                 ${quest.answersPositive} (${QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, true)}%)
                             </span>
                         </div>
 
-                        <div class="percentage-bar percentage-bar-${QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, false)}">
+                        <div class="percentage-bar percentage-bar-${QuestionService.calculatePercentagesForEvaluationChart(quest.answersPositive, quest.answersNegative, false)}">
                             <span>
                                 ${quest.answersNegative} (${QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, false)}%)
                             </span>

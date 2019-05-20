@@ -35,7 +35,7 @@
                             <g:radio name="answer" value="true"/>
                             ${QuestionService.answerBooleanToString(true, quest.questionType)}
 
-                            <g:radio name="answer" value="false"/>
+                            <g:radio name="answer" value="false" checked="checked"/>
                             ${QuestionService.answerBooleanToString(false, quest.questionType)}
 
                             <g:actionSubmit value="Speichern" action="saveAnswerOfUser" />

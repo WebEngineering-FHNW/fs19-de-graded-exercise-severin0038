@@ -58,4 +58,9 @@ class QuestionService {
         }
 
     }
+
+    def calculatePercentagesForEvaluationChart(int answersPositive, int answersNegative, boolean answerType) {
+        return (int)(calculatePercentagesForEvaluation(answersPositive, answersNegative, answerType));
+    }
+
 }
