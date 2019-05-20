@@ -6,29 +6,13 @@
 </head>
 <body>
     <main>
-        <p>Das ist meine Startseite</p>
-
-        <sec:ifLoggedIn>
-            <sec:ifAllGranted roles="ROLE_ADMIN">
-                <ul>
-                    <li><a href="/question">Liste aller Fragen</a></li>
-                    <li><a href="/question/openQuestions">offene Fragen</a></li>
-                    <li><a href="/question/answeredQuestions">beantwortete Fragen</a></li>
-                    <li><a href="/question/create">Neue Frage erstellen</a></li>
-                    <li><a href="/question/evaluation">Auswertung</a></li>
-                </ul>
-            </sec:ifAllGranted>
-        </sec:ifLoggedIn>
-
-        <sec:ifLoggedIn>
-            <sec:ifAllGranted roles="ROLE_NORMAL">
-                <ul>
-                    <li><a href="/question/openQuestions">offene Fragen</a></li>
-                    <li><a href="/question/answeredQuestions">beantwortete Fragen</a></li>
-                <ul>
-            </sec:ifAllGranted>
-        </sec:ifLoggedIn>
-
+        <div class="text_element">
+            <h1>Menschen ermöglichen, einfach<br>
+            die Zukunft mitzubestimmen.</h1>
+            <p>
+                Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können. Um ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher Betätigung, außer um Vorteile daraus zu ziehen? Aber wer hat irgend ein Recht, einen Menschen zu tadeln, der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der Schmerz vermeidet, welcher keine daraus resultierende Freude nach sich zieht? Auch gibt es niemanden, der den Schmerz an sich liebt.
+            </p>
+        </div>
     </main>
 </body>
 </html>
