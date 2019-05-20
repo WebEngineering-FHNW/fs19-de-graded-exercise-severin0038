@@ -33,6 +33,26 @@ body {
     background: -webkit-linear-gradient(-45deg, #b1d4d3,#4097f9,#12ba6e,#8b8d26);
     background: -o-linear-gradient(-45deg, #b1d4d3,#4097f9,#12ba6e,#8b8d26);
     background: linear-gradient(-45deg, #b1d4d3,#4097f9,#12ba6e,#8b8d26);
+    font-size: 18px;
+}
+
+main {
+    min-height: 70vh;
+    margin-top: 2.7em;
+    margin-bottom: 1em;
+    background: rgba(255,255,255,.7);
+}
+
+main, footer {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 @-webkit-keyframes Gradient {
@@ -103,13 +123,25 @@ img {
 header  {
     width: 100%;
     text-align: center;
-    padding-top: 2.5em;
+    padding-top: 3.5em;
 }
 
 header .logo path {
     fill: white;
 }
 
+/* FOOTER */
+
+footer {
+    text-align: right;
+    padding-bottom: 2.5em;
+}
+
+footer .logout {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 /* NAVIGATION MENU */
 

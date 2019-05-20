@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Swipinion</title>
+    <title>Swipinion Home</title>
 </head>
 <body>
     <main>
@@ -16,7 +16,6 @@
                     <li><a href="/question/answeredQuestions">beantwortete Fragen</a></li>
                     <li><a href="/question/create">Neue Frage erstellen</a></li>
                     <li><a href="/question/evaluation">Auswertung</a></li>
-                    <li><a href="/logout/index">Logout</a></li>
                 </ul>
             </sec:ifAllGranted>
         </sec:ifLoggedIn>
@@ -26,7 +25,6 @@
                 <ul>
                     <li><a href="/question/openQuestions">offene Fragen</a></li>
                     <li><a href="/question/answeredQuestions">beantwortete Fragen</a></li>
-                    <li><a href="/logout/index">Logout</a></li>
                 <ul>
             </sec:ifAllGranted>
         </sec:ifLoggedIn>

@@ -54,7 +54,6 @@ class QuestionController {
             String questionType = question.questionType;
             String answerQuestion;
 
-            System.out.println(questionType)
 
             if(questionType == "Mag ich / Mag ich nicht") {
                 if(answerOfThisQuestion) {
