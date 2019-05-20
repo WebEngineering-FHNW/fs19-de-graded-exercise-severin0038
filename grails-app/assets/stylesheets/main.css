@@ -571,7 +571,7 @@ a.skip {
 }
 
 /* Transitions */
-body #login #submit, .logout {
+body #login #submit, .logout, .logo, nav ul li a {
     -webkit-transition: all linear 300ms;
     -moz-transition: all linear 300ms;
     -ms-transition: all linear 300ms;
@@ -667,3 +667,501 @@ body #login #submit:hover {
 .message {
     display: none;
 }
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+table tr:hover {
+    background: transparent;
+}
+
+table tr:nth-child(2n-1), table tr:nth-child(2n-1):hover {
+    background:rgba(255,255,255,.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+.answer {
+    background: white;
+    padding: 1em;
+}
+
+.answer + .answer {
+    margin-top: 2.5em;
+}
+
+.answer h2 {
+    margin-bottom: 1em;
+}
+
+.chart {
+    display: flex;
+}
+
+.chartlabel, .chartgraphic {
+    display: inline-block;
+}
+
+.chartlabel {
+    width: 9em;
+    padding-right: 1em;
+}
+
+.chartgraphic {
+    width: 90%;
+}
+
+.chart span {
+    display: block;
+}
+
+.chartlabel span {
+    width: 100%;
+    text-align: right;
+    padding-top: .4em;
+    padding-bottom: .4em;
+}
+
+.chartlabel span:first-of-type, .chart .percentage-bar:first-of-type {
+    margin-bottom: .7em;
+}
+
+.chart .chartgraphic {
+    background: repeating-linear-gradient(to right, #ddd, #ddd 1px, #fff 1px, #fff 5%);
+    max-width: 100%;
+    height: 6em,;
+}
+
+.chart .percentage-bar {
+    background-color: #03965e;
+    position: relative;
+    box-sizing: border-box
+}
+
+.chart .percentage-bar:last-of-type {
+    background: #f73c2f;
+}
+
+.chart .percentage-bar span {
+    padding: .4em .8em;
+    color: white;
+}
+
+.chart .percentage-bar-0, .chart .percentage-bar:last-of-type.percentage-bar-0 {
+    width: 5em;
+    background: transparent;
+}
+
+.chart .percentage-bar-0 span {
+    color: black;
+}
+
+.chart .percentage-bar-1{
+    width: 1%;
+}
+
+.chart .percentage-bar-2{
+    width: 2%;
+}
+
+.chart .percentage-bar-3{
+    width: 3%;
+}
+
+.chart .percentage-bar-4{
+    width: 4%;
+}
+
+.chart .percentage-bar-5{
+    width: 5%;
+}
+
+.chart .percentage-bar-6{
+    width: 6%;
+}
+
+.chart .percentage-bar-7{
+    width: 7%;
+}
+
+.chart .percentage-bar-8{
+    width: 8%;
+}
+
+.chart .percentage-bar-9{
+    width: 9%;
+}
+
+.chart .percentage-bar-10{
+    width: 10%;
+}
+
+.chart .percentage-bar-11{
+    width: 11%;
+}
+
+.chart .percentage-bar-12{
+    width: 12%;
+}
+
+.chart .percentage-bar-13{
+    width: 13%;
+}
+
+.chart .percentage-bar-14{
+    width: 14%;
+}
+
+.chart .percentage-bar-15{
+    width: 15%;
+}
+
+.chart .percentage-bar-16{
+    width: 16%;
+}
+
+.chart .percentage-bar-17{
+    width: 17%;
+}
+
+.chart .percentage-bar-18{
+    width: 18%;
+}
+
+.chart .percentage-bar-19{
+    width: 19%;
+}
+
+.chart .percentage-bar-20{
+    width: 20%;
+}
+
+.chart .percentage-bar-21{
+    width: 21%;
+}
+
+.chart .percentage-bar-22{
+    width: 22%;
+}
+
+.chart .percentage-bar-23{
+    width: 23%;
+}
+
+.chart .percentage-bar-24{
+    width: 24%;
+}
+
+.chart .percentage-bar-25{
+    width: 25%;
+}
+
+.chart .percentage-bar-26{
+    width: 26%;
+}
+
+.chart .percentage-bar-27{
+    width: 27%;
+}
+
+.chart .percentage-bar-28{
+    width: 28%;
+}
+
+.chart .percentage-bar-29{
+    width: 29%;
+}
+
+.chart .percentage-bar-30{
+    width: 30%;
+}
+
+.chart .percentage-bar-31{
+    width: 31%;
+}
+
+.chart .percentage-bar-32{
+    width: 32%;
+}
+
+.chart .percentage-bar-33{
+    width: 33%;
+}
+
+.chart .percentage-bar-34{
+    width: 34%;
+}
+
+.chart .percentage-bar-35{
+    width: 35%;
+}
+
+.chart .percentage-bar-36{
+    width: 36%;
+}
+
+.chart .percentage-bar-37{
+    width: 37%;
+}
+
+.chart .percentage-bar-38{
+    width: 38%;
+}
+
+.chart .percentage-bar-39{
+    width: 39%;
+}
+
+.chart .percentage-bar-40{
+    width: 40%;
+}
+
+.chart .percentage-bar-41{
+    width: 41%;
+}
+
+.chart .percentage-bar-42{
+    width: 42%;
+}
+
+.chart .percentage-bar-43{
+    width: 43%;
+}
+
+.chart .percentage-bar-44{
+    width: 44%;
+}
+
+.chart .percentage-bar-45{
+    width: 45%;
+}
+
+.chart .percentage-bar-46{
+    width: 46%;
+}
+
+.chart .percentage-bar-47{
+    width: 47%;
+}
+
+.chart .percentage-bar-48{
+    width: 48%;
+}
+
+.chart .percentage-bar-49{
+    width: 49%;
+}
+
+.chart .percentage-bar-50{
+    width: 50%;
+}
+
+.chart .percentage-bar-51{
+    width: 51%;
+}
+
+.chart .percentage-bar-52{
+    width: 52%;
+}
+
+.chart .percentage-bar-53{
+    width: 53%;
+}
+
+.chart .percentage-bar-54{
+    width: 54%;
+}
+
+.chart .percentage-bar-55{
+    width: 55%;
+}
+
+.chart .percentage-bar-56{
+    width: 56%;
+}
+
+.chart .percentage-bar-57{
+    width: 57%;
+}
+
+.chart .percentage-bar-58{
+    width: 58%;
+}
+
+.chart .percentage-bar-59{
+    width: 59%;
+}
+
+.chart .percentage-bar-60{
+    width: 60%;
+}
+
+.chart .percentage-bar-61{
+    width: 61%;
+}
+
+.chart .percentage-bar-62{
+    width: 62%;
+}
+
+.chart .percentage-bar-63{
+    width: 63%;
+}
+
+.chart .percentage-bar-64{
+    width: 64%;
+}
+
+.chart .percentage-bar-65{
+    width: 65%;
+}
+
+.chart .percentage-bar-66{
+    width: 66%;
+}
+
+.chart .percentage-bar-67{
+    width: 67%;
+}
+
+.chart .percentage-bar-68{
+    width: 68%;
+}
+
+.chart .percentage-bar-69{
+    width: 69%;
+}
+
+.chart .percentage-bar-70{
+    width: 70%;
+}
+
+.chart .percentage-bar-71{
+    width: 71%;
+}
+
+.chart .percentage-bar-72{
+    width: 72%;
+}
+
+.chart .percentage-bar-73{
+    width: 73%;
+}
+
+.chart .percentage-bar-74{
+    width: 74%;
+}
+
+.chart .percentage-bar-75{
+    width: 75%;
+}
+
+.chart .percentage-bar-76{
+    width: 76%;
+}
+
+.chart .percentage-bar-77{
+    width: 77%;
+}
+
+.chart .percentage-bar-78{
+    width: 78%;
+}
+
+.chart .percentage-bar-79{
+    width: 79%;
+}
+
+.chart .percentage-bar-80{
+    width: 80%;
+}
+
+.chart .percentage-bar-81{
+    width: 81%;
+}
+
+.chart .percentage-bar-82{
+    width: 82%;
+}
+
+.chart .percentage-bar-83{
+    width: 83%;
+}
+
+.chart .percentage-bar-84{
+    width: 84%;
+}
+
+.chart .percentage-bar-85{
+    width: 85%;
+}
+
+.chart .percentage-bar-86{
+    width: 86%;
+}
+
+.chart .percentage-bar-87{
+    width: 87%;
+}
+
+.chart .percentage-bar-88{
+    width: 88%;
+}
+
+.chart .percentage-bar-89{
+    width: 89%;
+}
+
+.chart .percentage-bar-90{
+    width: 90%;
+}
+
+.chart .percentage-bar-91{
+    width: 91%;
+}
+
+.chart .percentage-bar-92{
+    width: 92%;
+}
+
+.chart .percentage-bar-93{
+    width: 93%;
+}
+
+.chart .percentage-bar-94{
+    width: 94%;
+}
+
+.chart .percentage-bar-95{
+    width: 95%;
+}
+
+.chart .percentage-bar-96{
+    width: 96%;
+}
+
+.chart .percentage-bar-97{
+    width: 97%;
+}
+
+.chart .percentage-bar-98{
+    width: 98%;
+}
+
+.chart .percentage-bar-99{
+    width: 99%;
+}
+
+.chart .percentage-bar-100{
+    width: 100%;
+}
+

@@ -33,4 +33,29 @@ class QuestionService {
         answerList.each { answer -> answer.delete(flush: true)}
     }
 
+    def calculatePercentagesForEvaluation(int answersPositive, int answersNegative, boolean answerType) {
+        double percentPositive;
+        double percentNegative;
+
+        if(answersPositive==0 && answersNegative==0) {
+            percentPositive=0;
+            percentNegative=0;
+        } else if(answersPositive>0 && answersNegative==0) {
+            percentPositive=100;
+            percentNegative=0;
+        } else if(answersPositive==0 && answersNegative>0) {
+            percentPositive=0;
+            percentNegative=100;
+        } else {
+            percentPositive = Math.round((100/(answersPositive+answersNegative)*answersPositive)*100)/100.0
+            percentNegative = 100-percentPositive;
+        }
+
+        if(answerType) {
+            return percentPositive;
+        } else {
+            return percentNegative
+        }
+
+    }
 }
