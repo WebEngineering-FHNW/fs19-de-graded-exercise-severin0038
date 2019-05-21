@@ -18,16 +18,12 @@
 <body>
 
     <main>
-
         <h1>Liste aller offenen Fragen</h1>
-
         <table>
-
             <tr>
                 <th>Frage</th>
                 <th>Frage beantworten</th>
             </tr>
-
             <g:each in="${openQuest}" var="quest">
                 <tr>
                     <td>${quest.questionTitle}</td>
@@ -50,7 +46,6 @@
 
 
         </table>
-
     </main>
 </body>
 </html>

@@ -16,19 +16,16 @@
     <main>
         <h1>Liste aller beantworteten Fragen</h1>
         <table>
-
             <tr>
                 <th>Frage</th>
                 <th>Meine Antwort</th>
             </tr>
-
             <g:each in="${answeredQuest}" var="quest">
                 <tr>
                     <td>${quest[0]}</td>
                     <td>${quest[1]}</td>
                 </tr>
             </g:each>
-
         </table>
     </main>
 </body>

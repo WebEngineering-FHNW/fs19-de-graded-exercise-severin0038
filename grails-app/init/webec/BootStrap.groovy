@@ -7,56 +7,35 @@ class BootStrap {
     def init = { servletContext ->
 
         // in production or test, this might already be in the DB
-
-        //rollen erstellen
         SecRole adminRole = save(SecRole.findOrCreateWhere(authority: SecRole.ADMIN))
-        SecRole normalRole = save(SecRole.findOrCreateWhere(authority: SecRole.NORMAL))
+        SecRole guestRole = save(SecRole.findOrCreateWhere(authority: SecRole.NORMAL))
+
+
+        SecUser guest  = save(new SecUser(username: 'guest', password: 'guest'))
+        SecUserSecRole.create(guest, guestRole, true)
+
+        SecUser guest2  = save(new SecUser(username: 'guest2', password: 'guest2'))
+        SecUserSecRole.create(guest2, guestRole, true)
 
         if (Environment.current == Environment.PRODUCTION) return; // guard clause
 
-        //user erstellen
-        SecUser severin  = save(new SecUser(username: 'severin', password: 'severin'))
-        SecUserSecRole.create(severin, normalRole, true)
+        SecUser testUser  = save(new SecUser(username: 'me', password: 'toobad'))
+        SecUserSecRole.create(testUser, adminRole, true) //flush
 
-        SecUser dani  = save(new SecUser(username: 'dani', password: 'dani'))
-        SecUserSecRole.create(dani, normalRole, true)
+        // plausibility check
+//        assert SecRole.count()          == 2
+//        assert SecUser.count()          == 2
+//        assert SecUserSecRole.count()   == 2
 
-        SecUser noemi  = save(new SecUser(username: 'noemi', password: 'noemi'))
-        SecUserSecRole.create(noemi, normalRole, true)
+        Question question1 = save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 0, answersPositive: 0))
+        Question question2 = save(new Question(questionTitle: "Hast du heute Pasta gegessen?", questionType: "Ja / Nein", answersNegative: 2, answersPositive: 0))
+        Question question3 = save(new Question(questionTitle: "Kantine der FHNW", questionType: "Mag ich / Mag ich nicht", answersNegative: 3, answersPositive: 5))
+        save(new Question(questionTitle: "Herr König ist der beste Dozent der FHNW", questionType: "Ich stimme zu / Ich lehene ab", answersNegative: 0, answersPositive: 3))
 
-        SecUser debby  = save(new SecUser(username: 'debby', password: 'debby'))
-        SecUserSecRole.create(debby, normalRole, true)
-
-        SecUser nati  = save(new SecUser(username: 'nati', password: 'nati'))
-        SecUserSecRole.create(nati, normalRole, true)
-
-        SecUser chris  = save(new SecUser(username: 'chris', password: 'chris'))
-        SecUserSecRole.create(chris, normalRole, true)
-
-        SecUser admin  = save(new SecUser(username: 'admin', password: 'admin'))
-        SecUserSecRole.create(admin, adminRole, true)
-
-        //Fragen erstellen
-        Question question1 = save(new Question(questionTitle: "Ist WebeC dein Lieblingsmodul?", questionType: "Ja / Nein", answersNegative: 1, answersPositive: 4))
-        Question question2 = save(new Question(questionTitle: "Hast du heute Pasta gegessen?", questionType: "Ja / Nein", answersNegative: 3, answersPositive: 0))
-        Question question3 = save(new Question(questionTitle: "Kantine der FHNW", questionType: "Mag ich / Mag ich nicht", answersNegative: 2, answersPositive: 3))
-        save(new Question(questionTitle: "Herr König ist der beste Dozent der FHNW", questionType: "Ich stimme zu / Ich lehene ab", answersNegative: 0, answersPositive: 0))
-
-        //Antworten erstellen
-        save(new Answer(user: severin, question: question1, answer: true))
-        save(new Answer(user: dani, question: question1, answer: true))
-        save(new Answer(user: dani, question: question2, answer: false))
-        save(new Answer(user: dani, question: question3, answer: false))
-        save(new Answer(user: noemi, question: question1, answer: false))
-        save(new Answer(user: noemi, question: question2, answer: false))
-        save(new Answer(user: noemi, question: question3, answer: true))
-        save(new Answer(user: debby, question: question1, answer: true))
-        save(new Answer(user: debby, question: question3, answer: true))
-        save(new Answer(user: nati, question: question3, answer: false))
-        save(new Answer(user: chris, question: question1, answer: true))
-        save(new Answer(user: chris, question: question2, answer: false))
-        save(new Answer(user: chris, question: question3, answer: true))
-        save(new Answer(user: admin, question: question3, answer: true))
+        save(new Answer(user: guest, question: question1, answer: true))
+        save(new Answer(user: guest, question: question2, answer: false))
+        save(new Answer(user: testUser, question: question1, answer: true))
+        save(new Answer(user: guest, question: question3, answer: true))
 
     }
 
