@@ -5,6 +5,7 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class QuestionService {
 
+    //Diese Methode wandelt eine Antwort (true oder fals) aufgrund des Fragetyps einem String zu
     def answerBooleanToString(boolean answer, String questionType) {
 
         if (questionType == "Mag ich / Mag ich nicht") {
@@ -28,39 +29,33 @@ class QuestionService {
         }
     }
 
+
+
+    //Diese Methode löscht die Abhängigkeiten einer Frage (also alle Einträge in der Antworten-Tabelle mit dieser Frage)
     def deleteQuestionDependencies(Question question) {
         def answerList = Answer.findAllByQuestion(question)
         answerList.each { answer -> answer.delete(flush: true)}
     }
 
+
+
+    //Diese Methode berechnet die Prozentzahlen der positiven und negativen Antworten
     def calculatePercentagesForEvaluation(int answersPositive, int answersNegative, boolean answerType) {
-        double percentPositive;
-        double percentNegative;
 
+        //Sonderfall wenn noch keine Antworten gegeben wurden (damit nicht durch 0 geteilt wird)
         if(answersPositive==0 && answersNegative==0) {
-            percentPositive=0;
-            percentNegative=0;
-        } else if(answersPositive>0 && answersNegative==0) {
-            percentPositive=100;
-            percentNegative=0;
-        } else if(answersPositive==0 && answersNegative>0) {
-            percentPositive=0;
-            percentNegative=100;
+            return 0;
+
         } else {
-            percentPositive = Math.round((100/(answersPositive+answersNegative)*answersPositive)*100)/100.0
-            percentNegative = 100-percentPositive;
+
+            double percentPositive = Math.round((100 / (answersPositive + answersNegative) * answersPositive) * 100) / 100.0
+
+            if(answerType) {
+                return percentPositive
+            } else {
+                return 100-percentPositive
+            }
         }
-
-        if(answerType) {
-            return percentPositive;
-        } else {
-            return percentNegative
-        }
-
-    }
-
-    def calculatePercentagesForEvaluationChart(int answersPositive, int answersNegative, boolean answerType) {
-        return (int)(calculatePercentagesForEvaluation(answersPositive, answersNegative, answerType));
     }
 
 }

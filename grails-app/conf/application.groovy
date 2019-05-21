@@ -33,25 +33,21 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 // config types are 'Annotation', 'Requestmap', or 'InterceptUrlMap'
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
 grails.plugin.springsecurity.interceptUrlMap = statics + [
+		//Diese Seiten werden für alle freigegeben, damit das Login/Logout einwandfrei funktioniert
 		[pattern: "/static/**",                     access: ["permitAll"]],
 		[pattern: "/login/auth",                    access: ["permitAll"]],
         [pattern: "/logout/**",                     access: ["permitAll"]],
 
-		[pattern: "/question/openQuestions",        access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
-        [pattern: "/question/answeredQuestions",    access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
+		[pattern: "/question/create/**",    	    access: ['ROLE_ADMIN']],
+		[pattern: "/question/show/**",		        access: ['ROLE_ADMIN']],
+		[pattern: "/question/delete/**",        	access: ['ROLE_ADMIN']],
+		[pattern: "/question/update/**",        	access: ['ROLE_ADMIN']],
+
+		//Ein normaler User hat Zugriff auf seine offenen und bereits beantworteten Fragen...
+		[pattern: "/question/**",        			access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
+//        [pattern: "/question/answeredQuestions",    access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
 		[pattern: "/",						        access: ['ROLE_ADMIN', 'ROLE_NORMAL']],
 
+		//Die restlichen Seiten kann nur ein Administrator sehen
         [pattern: "/**",                            access: ['ROLE_ADMIN']], // default: all is secured
 ]
-
-
-//		[pattern: "/question/**" , access: ['ROLE_ADMIN']], // cannot use constant here :-(
-//		[pattern: "/answer/**"   , access: ['ROLE_ADMIN']],
-//		[pattern: "/answer/**", access: ['ROLE_ADMIN', 'ROLE_NORMAL']], // secured for testing security
-//		[pattern: "/InPlaceCalculator.html" ,   access: ['permitAll']], // unsecured for ease of testing
-//		[pattern: "/inPlaceCalculator/**" ,     access: ['permitAll']],
-//		[pattern: "/multiplicationCircle.html", access: ['permitAll']],
-//		[pattern: "/multiplicationCircle/**" ,  access: ['permitAll']],
-//		[pattern: "/static/Temperatures.html",  access: ['permitAll']],
-//		[pattern: "/**", access: ['ROLE_ADMIN', 'ROLE_NORMAL']], // default: all is secured
-//      [pattern: "/**", access: ['permitAll']], // default: all is open

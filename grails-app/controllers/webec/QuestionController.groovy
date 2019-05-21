@@ -84,7 +84,7 @@ class QuestionController {
         try {
             //Antworten auslesen und ids auf Objekete matchen
             def question_id = params.question;
-            def givenAnswer = params.answer;
+            def givenAnswer = Boolean.parseBoolean(params.answer);
             def user_id = params.user_id;
             Question question = Question.findById(question_id);
             SecUser user = SecUser.findById(user_id);
@@ -93,7 +93,7 @@ class QuestionController {
             Answer answer = new Answer();
             answer.question = question;
             answer.user = user;
-            answer.answer = Boolean.parseBoolean(givenAnswer)
+            answer.answer = givenAnswer
             answer.save(flush: true)
 
             //je nachdem, ob positiv oder negativ geantwortet wurde, das entsprechende Feld der Frage um 1 inkrementieren
@@ -113,7 +113,7 @@ class QuestionController {
             flash.error = re.message
         }
 
-        redirect(uri: "/question/openQuestions")
+        redirect(controller: "question", action: "openQuestions")
     }
 
 
