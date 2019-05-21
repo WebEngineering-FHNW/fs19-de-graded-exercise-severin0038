@@ -40,11 +40,11 @@ How to test the project:  (if other than `grailsw test-app`)
 Hand-written, static HTML 
 project description:      (if other than `index.html` in project root directory)
 
-External contributions:
+External contributions: see `index.html`
 
-Other comments: 
+Other comments: see `index.html`
 
-I'm particular proud of:
+I'm particular proud of: see `index.html`
 
 
 ## Project grading 
