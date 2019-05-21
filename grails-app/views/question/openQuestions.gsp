@@ -32,11 +32,15 @@
                             <g:hiddenField  name="question" value="${quest.id}"/>
                             <g:hiddenField  name="user_id" value="${user_id}"/>
 
-                            <g:radio name="answer" value="true"/>
-                            ${QuestionService.answerBooleanToString(true, quest.questionType)}
+                            <span>
+                                <g:radio name="answer" value="true"/>
+                                ${QuestionService.answerBooleanToString(true, quest.questionType)}
+                            </span>
 
-                            <g:radio name="answer" value="false" checked="checked"/>
-                            ${QuestionService.answerBooleanToString(false, quest.questionType)}
+                            <span>
+                                <g:radio name="answer" value="false" checked="checked"/>
+                                ${QuestionService.answerBooleanToString(false, quest.questionType)}
+                            </span>
 
                             <g:actionSubmit value="Speichern" action="saveAnswerOfUser" />
                         </g:form>

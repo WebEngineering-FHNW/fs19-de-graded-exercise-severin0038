@@ -42,8 +42,8 @@ class QuestionService {
 
         //Sonderfall wenn noch keine Antworten gegeben wurden (damit nicht durch 0 geteilt wird)
         if(answersPositive==0 && answersNegative==0) {
-            percentPositive=0;
-            percentNegative=0;
+            return 0;
+
         } else {
             double percentPositive = Math.round((100 / (answersPositive + answersNegative) * answersPositive) * 100) / 100.0
             if(answerType) {

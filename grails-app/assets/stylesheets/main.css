@@ -679,3 +679,31 @@ table tr:hover {
 table tr:nth-child(2n-1), table tr:nth-child(2n-1):hover {
     background:rgba(255,255,255,.4);
 }
+
+.infobox {
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.infobox--message {
+    color: green;
+}
+
+.infobox--error {
+    color: red;
+}
+
+.infobox p {
+    width: 70%;
+    margin: 0 auto;
+}
+
+table form span {
+    width: 9em;
+    display: inline-block;
+}

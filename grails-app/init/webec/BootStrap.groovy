@@ -10,7 +10,7 @@ class BootStrap {
 
         //rollen erstellen
         SecRole adminRole = save(SecRole.findOrCreateWhere(authority: SecRole.ADMIN))
-        SecRole guestRole = save(SecRole.findOrCreateWhere(authority: SecRole.NORMAL))
+        SecRole normalRole = save(SecRole.findOrCreateWhere(authority: SecRole.NORMAL))
 
         if (Environment.current == Environment.PRODUCTION) return; // guard clause
 
