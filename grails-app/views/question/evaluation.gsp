@@ -13,6 +13,7 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Swipinion - Auswertung</title>
+    <asset:stylesheet src="chart.css"/>
 </head>
 
 <body>
@@ -22,26 +23,6 @@
         <h1>Auswertung aller Fragen</h1>
 
         <g:each in="${allQuest}" var="quest">
-
-%{--            <div class="answer_container">--}%
-%{--                <h2>${quest.questionTitle}</h2>--}%
-%{--                <p class="answer--positive">--}%
-%{--                    <span class="answer__label">--}%
-%{--                        ${QuestionService.answerBooleanToString(true, quest.questionType)}:--}%
-%{--                    </span>--}%
-%{--                    <span class="answer__count">--}%
-%{--                        ${quest.answersPositive}--}%
-%{--                    </span>--}%
-%{--                </p>--}%
-%{--                <p class="answer answer--negative">--}%
-%{--                    <span class="answer__label">--}%
-%{--                        ${QuestionService.answerBooleanToString(false, quest.questionType)}:--}%
-%{--                </span>--}%
-%{--                    <span class="answer__count">--}%
-%{--                        ${quest.answersNegative}--}%
-%{--                    </span>--}%
-%{--                </p>--}%
-%{--            </div>--}%
 
             <div class="answer">
                 <h2>${quest.questionTitle}</h2>
@@ -56,13 +37,16 @@
                     </div>
 
                     <div class="chartgraphic">
-                        <div class="percentage-bar percentage-bar-${QuestionService.calculatePercentagesForEvaluationChart(quest.answersPositive, quest.answersNegative, true)}">
+
+                        <!-- percentage-bar-positive -->
+                        <div class="percentage-bar percentage-bar-${(int)QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, true)}">
                             <span>
                                 ${quest.answersPositive} (${QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, true)}%)
                             </span>
                         </div>
 
-                        <div class="percentage-bar percentage-bar-${QuestionService.calculatePercentagesForEvaluationChart(quest.answersPositive, quest.answersNegative, false)}">
+                        <!-- percentage-bar-negative -->
+                        <div class="percentage-bar percentage-bar-${(int)QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, false)}">
                             <span>
                                 ${quest.answersNegative} (${QuestionService.calculatePercentagesForEvaluation(quest.answersPositive, quest.answersNegative, false)}%)
                             </span>
