@@ -5,14 +5,14 @@ import spock.lang.Specification
 
 class QuestionServiceSpec extends Specification implements ServiceUnitTest<QuestionService>{
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test something"() {
-        expect:"fix me"
-            true == false
-    }
+//    def setup() {
+//    }
+//
+//    def cleanup() {
+//    }
+//
+//    void "test something"() {
+//        expect:"fix me"
+//            true == false
+//    }
 }
