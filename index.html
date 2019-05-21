@@ -52,7 +52,7 @@
         }
 
         /* typo */
-        h1, h2 {
+        h1, h2, h3 {
             line-height: 1.2;
             color: #222;
         }
@@ -67,12 +67,17 @@
             margin-bottom: .5em;
         }
 
+        h3 {
+            font-size: 30px;
+            margin-bottom: .5em;
+        }
+
         p, a, span, li, address {
             color: #222;
             line-height: 1.5;
         }
 
-        main p, main ul {
+        main p, main ul, main .user p:last-of-type {
             margin-bottom: 1.5em;
         }
 
@@ -83,6 +88,30 @@
 
         a:hover {
             opacity: .6;
+        }
+
+        main a {
+            box-shadow: 0 1px 0 0 #333;
+        }
+
+        main a:hover {
+            box-shadow: 0 1px 0 0 #888;
+        }
+
+        main ul li {
+            list-style-type: none;
+            padding-left: 1.4em;
+            position: relative;
+        }
+
+        main ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 10px;
+            height: 2px;
+            background: #555;
         }
 
         /* header */
@@ -123,6 +152,7 @@
         nav ul li a {
             padding: .4em 1em;
         }
+
 
         /* footer */
 
@@ -169,6 +199,30 @@
             100% {
                 background-position: 0% 50%
             }
+        }
+
+        /*users*/
+        .user p {
+            margin-bottom: .2em;
+        }
+
+        .user span:first-of-type {
+            width: 6em;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .user span:last-of-type {
+            position: relative;
+            padding-left: 2.2em;
+        }
+
+        .user span:last-of-type::before {
+            content: 'pw: ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 1;
         }
 
 
@@ -247,8 +301,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#project_description">Projektbeschreibung</a></li>
-                    <li><a href="#about">&Uuml;ber mich</a></li>
+                    <li><a href="#description">Projektbeschreibung</a></li>
+                    <li><a href="#future">Zukunft</a></li>
                 </ul>
             </nav>
         </div>
@@ -259,16 +313,49 @@
     <main>
         <h1>Swipinion ermöglicht Menschen, einfach die Zukunft mitzubestimmen</h1>
 
-        <section id="project_description">
-            <h2>Projektbeschreibung</h2>
-            <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.</p>
-            <p>Um ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher Betätigung, außer um Vorteile daraus zu ziehen? Aber wer hat irgend ein Recht, einen Menschen zu tadeln, der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der Schmerz vermeidet, welcher keine daraus resultierende Freude nach sich zieht? Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können. </p>
+        <section id="description">
+            <h2>Was ist Swipinon?</h2>
+            <p>Das Umfrage-Tool "Swipinion" ist ein Tool, um einfache "Ja/Nein"- oder "Gefällt mir/Gefällt mir nicht"-Fragen zu stellen. Die Idee wurde in Requirements Engineering geboren und in bwlC wird momentan ein Businessplan dazu erstellt.</p>
+            <p>Ein Administrator kann Fragen erfassen und auswählen, ob es eine "Ja/Nein"- oder eine "Gefällt mir/Gefällt mir nicht"-Frage ist. Administratoren und Users sehen eine Übersicht dieser Fragen und können diese beantworten.</p>
+
+            <p>Folgende Benutzer existieren bereits und können verwendet werden</p>
+
+            <div class="user">
+                <h3>Administratoren</h3>
+                <p><span>admin</span><span>admin</span></p>
+            </div>
+
+            <div class="user">
+                <h3>normale User</h3>
+                <p><span>severin</span><span>severin</span></p>
+                <p><span>dani</span><span>dani</span></p>
+                <p><span>noemi</span><span>noemi</span></p>
+                <p><span>debby</span><span>debby</span></p>
+                <p><span>nati</span><span>nati</span></p>
+                <p><span>chris</span><span>chris</span></p>
+            </div>
+
+            <h3>Hilfestellung</h3>
+            <ul>
+                <li>Feedback und Hilfestellungen durch Prof. Dierk König</li>
+                <li><a href="https://grails.org/documentation.html" target="_blank">Grails-Dokumentation</a></li>
+                <li>Austausch mit Kommilitonen</li>
+            </ul>
+
         </section>
 
-        <section id="about">
-            <h2>&Uuml;ber mich</h2>
-            <p>Um ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher Betätigung, außer um Vorteile daraus zu ziehen? Aber wer hat irgend ein Recht, einen Menschen zu tadeln, der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der Schmerz vermeidet, welcher keine daraus resultierende Freude nach sich zieht?</p>
-            <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.</p>
+
+
+        <section id="future">
+            <h2>Wie kann die Applikation erweitert werden?</h2>
+            <ul>
+                <li>Eine Frage durch ein Bild erweitern</li>
+                <li>Kategorien von Fragen erstellen</li>
+                <li>Kategorien können von Usern abonniert werden</li>
+                <li>Fragen können mit Swipen beantwortet werden (daher der Name Swipinion bestehnd aus Swipe und Opinion)</li>
+                <li>Rollenerweiterung durch einen Moderator, welcher Fragen von normalen Usern freigeben kann</li>
+                <li>Administrator kann neue Benutzer erfassen</li>
+            </ul>
         </section>
 
     </main>

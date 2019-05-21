@@ -85,8 +85,4 @@ class SecUserSecRole implements Serializable {
 		version false
 	}
 
-//	public int getUserRole(SecUser u) {
-//		def allRoles = findAll(u as Closure);
-//		System.out.println(allRoles);
-//	} TODO
 }
