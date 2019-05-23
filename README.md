@@ -49,4 +49,41 @@ I'm particular proud of: see `index.html`
 
 ## Project grading 
 
-< to be filled by lecturer>
+index.html given and fully valid 
+plus: good document structure, use of semantic elements, nice styling!
+The use of SVG for the logo has some interesting effects.
+
+The application runs smoothly.
+(minor: typo "Ich lehene ab") ;-)
+
+Features:
+- customized login
+- data prefill in bootstrap (great example questions!)
+- navigation, role-based security, form-based interaction, 
+- 2 domain classes (plus security) and two many-to-one relations
+- comprehensive custom view for the summary
+- role-based security and feature set (use in the controllers)
+- declarative validation
+
+Engineering:
+- comprehensive commit log over many days, a bit tail-heavy towards the end
+- tests are all commented out
+- comments are mostly implementation specific line-comments but they help
+- The html has some validity issues, e.g. duplicated id attributes in the question overview page for
+"question", "answer", and "user_id".
+
+You made very good use of the framework features, particularly scaffolding and security, in combination with
+custom actions and view. Holding onto the Services from within the view is possible but not fully in the spirit
+of WebMVC, where the controller should call the service and pass all data to the view that the view needs.
+
+The application is focused on a clear purpose and achieves it with the benefits of simplicity.
+
+I award two extra points for the particular effort as visible in the commit log. 
+
+Congratulations!
+You created a fully functional, distributed, security-enabled, database-backed, web application
+from scratch on your own in a rather tight time frame.
+
+Grade: 5.4
+
+
